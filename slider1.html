@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slider</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+		.body-margin{
+			margin-top: 100px;
+		}
+		.slider-img{
+			height: 500px;
+			float: left;
+		}
+    .button-side{
+      float: right !important;
+    }
+	</style>
+</head>
+<body class=" body-margin">
+	<div class="container">
+      <div class="carousel-item active row">
+        <div id="gallery-slide-wrapper">
+          <span id="imgeShowBox">
+            <img class="d-block slider-img img-fluid col-4"  id="img_1"  src="./images/1.jpg" alt="First slide">
+            <img class="d-block slider-img img-fluid col-4" id="img_2"  src="./images/2.jpg" alt="Second slide">
+            <img class="d-block slider-img img-fluid col-4"  id="img_3" src="./images/3.jpg" alt="Second slide">
+          </span>
+        </div>
+      </div>
+
+      <dir class="row">
+            <button onclick="myfunction()" type="button" style="float: left !important;" >previws</button>
+            <button onclick="myfunction()" type="button" class="button-side">next</button>
+      </dir>
+	</div>
+<script type="text/javascript"> 
+  var galleryData = {
+    gallery: [
+      {
+        queue: 0,
+        video: false,
+        imgPath1: "./images/1.jpg",
+        imgPath2: "./images/2.jpg",
+        imgPath3: "./images/3.jpg"
+      },
+      {
+        queue: 1,
+        video: false,
+        imgPath1: "./images/4.jpg",
+        imgPath2: "./images/5.jpg",
+        imgPath3: "./images/6.jpg"
+      }
+    ]
+  
+  };
+  var gallery = galleryData.gallery;
+  var currentImage = 0;
+
+  function myfunction(){
+    if (currentImage == 0) {
+      document.getElementById('img_1').src="./images/4.jpg";
+      document.getElementById('img_2').src="./images/5.jpg";
+      document.getElementById('img_3').src="./images/6.jpg";
+       return currentImage = 1;
+    }
+    if (currentImage == 1) {
+      document.getElementById('img_1').src="./images/1.jpg";
+      document.getElementById('img_2').src="./images/2.jpg";
+      document.getElementById('img_3').src="./images/3.jpg";
+      return currentImage=0;
+
+    }
+  };
+
+  setInterval(myfunction,3000);
+</script>	
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
